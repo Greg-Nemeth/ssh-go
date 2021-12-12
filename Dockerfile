@@ -8,8 +8,8 @@ FROM alpine:3.15
 RUN apk add --update --no-cache openssh git ctags tree
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 RUN adduser -h /home/greg -s /bin/sh -D greg
-RUN echo -n 'greg:fluffyg88' | chpasswd
-RUN mkdir -p /home/greg/go/ && chown greg:greg /home/greg/go
+RUN echo -n 'user:password' | chpasswd
+RUN mkdir -p /home/user/go/ && chown user:user /home/user/go
 RUN echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile && source /etc/profile
 ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 22
